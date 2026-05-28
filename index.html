@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Subscriber Counter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
+</head>
+<body>
+    <div class="icon">
+        <i class="yt fa-brands fa-youtube" style="color: rgb(249, 0, 35);"></i>
+
+    <div class="container">
+        <h1>Subscriber Count</h1>
+
+        <div class="count">
+            <p id="subs">--</p>
+        </div>
+
+        <p id="msg">Fetching Data...</p>
+
+        <button>Subscribe</button>
+    </div>
+    </div>
+
+    <script>
+        let subscribers = {};
+        const websocket = new WebSocket("ws://localhost:8080/stats")
+
+        websocket.onopen = function (event) {
+            console.log("Successfully connected to websocket endpoint")
+        }
+
+        websocket.onerror = function (err) {
+            console.log(err)
+        }
+
+        websocket.onmessage = function (event) {
+            subscribers = JSON.parse(event.data);
+            console.log(subscribers);
+
+            document.getElementById("subs").innerText = subscribers.statistics.subscriberCount;
+            document.getElementById("msg").innerText = "Thanks for supporting the channel 🎉";
+        }
+
+    </script>
+
+</body>
+</html>
