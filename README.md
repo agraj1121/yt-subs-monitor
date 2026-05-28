@@ -25,7 +25,7 @@ A real-time YouTube subscriber tracking application built with Go, WebSockets, a
 
 # Project Structure
 
-yt-subs-monitor/
+```yt-subs-monitor/
 ├── main.go
 ├── go.mod
 ├── go.sum
@@ -33,7 +33,7 @@ yt-subs-monitor/
 ├── youtube.go
 ├── websocket.go
 └── .env
-
+```
 ---
 
 # Getting Started
