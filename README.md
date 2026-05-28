@@ -42,14 +42,18 @@ yt-subs-monitor/
 # 1. Clone the repository
 
 
+```
 git clone https://github.com/agraj1121/yt-subs-monitor.git
 cd yt-subs-monitor
+```
 
 ---
 
 ### 2. Install dependencies
 
+```
 go mod tidy
+```
 
 ---
 
@@ -57,9 +61,10 @@ go mod tidy
 
 Create a `.env` file in the project root:
 
-env
+```
 YOUTUBE_API_KEY=YOUR_API_KEY
 CHANNEL_ID=YOUR_CHANNEL_ID
+```
 
 ---
 
